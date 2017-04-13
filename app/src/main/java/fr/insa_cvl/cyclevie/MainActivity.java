@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("MOOC", "Create !");
         super.onCreate(savedInstanceState);
+        Log.i("MOOC", "Create !");
         setContentView(R.layout.activity_main);
 
         // BROWSER
@@ -76,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onRestart() { super.onRestart(); Log.i("MOOC", "Restart !"); }
 
     @Override
     protected void onStart() { super.onStart(); Log.i("MOOC", "Start !"); }
