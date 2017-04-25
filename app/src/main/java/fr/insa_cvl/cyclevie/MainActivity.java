@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("MOOC", "Create !");
         setContentView(R.layout.activity_main);
+        Log.i("CIO", "onCreate !");
 
         // BROWSER
         Button browser = (Button)findViewById(R.id.browser);
@@ -32,10 +32,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Ask permission
+        Button askpermission = (Button)findViewById(R.id.askpermission);
+        askpermission.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[]{Manifest.permission.READ_CONTACTS}, 1);
+            }
+        });
+
         // Alert dialog
         Button dialog = (Button)findViewById(R.id.dialog);
         dialog.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Delete entry")
@@ -55,15 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button askpermission = (Button)findViewById(R.id.askpermission);
-        askpermission.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ActivityCompat.requestPermissions(MainActivity.this,
-                        new String[]{Manifest.permission.READ_CONTACTS}, 1);
-            }
-        });
-
+        // Activity as dialog
         Button activity2 = (Button)findViewById(R.id.activityasdialog);
         activity2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,22 +79,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onRestart() { super.onRestart(); Log.i("MOOC", "Restart !"); }
+    protected void onRestart() { super.onRestart(); Log.i("CIO", "onRestart !"); }
 
     @Override
-    protected void onStart() { super.onStart(); Log.i("MOOC", "Start !"); }
+    protected void onStart() { super.onStart(); Log.i("CIO", "onStart !"); }
 
     @Override
-    protected void onResume() { super.onResume(); Log.i("MOOC", "Resume !"); }
+    protected void onResume() { super.onResume(); Log.i("CIO", "onResume !"); }
 
     @Override
-    protected void onPause() { super.onPause(); Log.i("MOOC", "Pause !"); }
+    protected void onPause() { super.onPause(); Log.i("CIO", "onPause !"); }
 
     @Override
-    protected void onStop() { super.onStop(); Log.i("MOOC", "Stop !"); }
+    protected void onStop() { super.onStop(); Log.i("CIO", "onStop !"); }
 
     @Override
-    protected void onDestroy() { super.onDestroy(); Log.i("MOOC", "Destroy !"); }
+    protected void onDestroy() { super.onDestroy(); Log.i("CIO", "onDestroy !"); }
 
 
 
